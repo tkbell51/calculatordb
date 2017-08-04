@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Javaculator 2.0</title>
+    <span th:include="includes :: css"></span>
+</head>
+<body>
+<div class="container">
+    <div class="jumbotron">
+        <h1>Javaculator 2.0 </h1>
+        <small>Dracula made a calculator. blah, bla, blah</small>
+        <div class="row">
+            <div class="col-md-6 dropdown ">
+                <button class="btn btn-default btn-lg dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Select User
+                    <span class="glyphicon glyphicon-user"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li th:each="operation_user : ${operation_user}"><a th:href="'/calculator/' + @{${operation_user.id}}" th:text="${operation_user.username}"></a></li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <div class="input-group">
+                    <form action="/newUser" method="post">
+                        <input type="text" class=" input-lg form-control" name="newUser" placeholder="Create New User"/>
+                    </form>
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-primary btn-lg"> <span class="glyphicon glyphicon-plus"></span> </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</div>
+
+<span th:include="includes :: js"></span>
+</body>
+</html>
