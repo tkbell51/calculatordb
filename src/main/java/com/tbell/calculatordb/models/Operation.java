@@ -78,7 +78,7 @@ public class Operation {
         return operator;
     }
 
-    public static Double doMath (String number1, String number2, String operator){
+    public static Double doMath (String number1, String number2, String operator) throws ArithmeticException{
         double num1 =  Double.parseDouble(number1);
         double num2=  Double.parseDouble(number2);
 
@@ -94,7 +94,8 @@ public class Operation {
                 result = num1 * num2;
                 break;
             case "/":
-                result = num1/num2;
+
+                result = num1 / num2;
                 break;
             case "%":
                 result = num1 % num2;

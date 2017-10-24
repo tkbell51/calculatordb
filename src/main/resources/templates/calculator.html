@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Title</title>
+    <title>Javaculator 2.0</title>
     <span th:include="includes :: css"></span>
 </head>
 <body>
@@ -13,12 +13,14 @@
         <h1 th:text="${operation_user.username} + ' calculations'"></h1>
     </div>
 
+    <div style="color: red;font-size: 3em;" th:text="${error}"></div>
+
     <form th:action="'/operationCreate/' + @{${userId}}" method="post">
 
 
         <div class="row">
             <div class="col-md-3">
-                <input class="form-control input-lg" type="text" name="firstNum" th:value="${resultsData}" placeholder="number"/>
+                <input class="form-control input-lg" type="text" name="firstNum" th:value="${resultsData}" autofocus="autofocus" placeholder="number"/>
 
             </div>
             <div class="col-md-3">
@@ -50,7 +52,10 @@
     <div th:each="operation : ${operation}">
         <h3 th:text="${operation.first_number} + ' ' + ${operation.operator} + ' ' + ${operation.second_number} + ' = ' + ${operation.solution}"></h3>
     </div>
+
     <span th:include="includes :: js"></span>
+    <a class="btn btn-primary" role="button" style="position:fixed;bottom:20px;right:20px;margin:0;padding:5px 3px;" href="#top">GO TO TOP</a>
+
 </div>
 </body>
 
